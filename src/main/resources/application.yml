@@ -1,0 +1,27 @@
+micronaut:
+  application:
+    name: ouathbug
+  http:
+    services:
+      sample:
+        url: https://httpstat.us
+        path: /200
+    client:
+      read-timeout: 10ms
+  security:
+    oauth2:
+      clients:
+        sample-auth-service:
+          grant-type: client_credentials
+          scopes: [ "introspect_tokens" ]
+          token:
+            auth-method: client_secret_post
+            url: https://mplanchant.eu.authz.cloudentity.io/mplanchant/default/oauth2/token
+          client-id: 07ea97a7fcf841e0adb3db84bd7e3ac5
+          client-secret: bt0ux3o2HIdYzhJ64hN1qhAOGupi3d56lYLPd14Gcnw
+          client-credentials:
+            service-id-regex: 'sample'
+netty:
+  default:
+    allocator:
+      max-order: 3
